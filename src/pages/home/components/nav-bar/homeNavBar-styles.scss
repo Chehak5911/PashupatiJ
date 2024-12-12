@@ -1,0 +1,52 @@
+@import '../../../../theme/colors';
+@import '../../../../theme/spacing';
+@import '../../../../theme/typography';
+@import '../../../../theme/breakingpoints';
+@import '../../../../theme/mixins';
+
+.homeNavBar {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    background-color: get-color($neutral, 100);
+    border-right: $spacing-2 solid get-color($neutral, 04);
+    min-width: 200px; // Ensure it doesn't shrink too much
+    max-width: 300px; // Prevent it from becoming excessively wide
+    height: 100vh; // Ensure it spans the full viewport height
+    overflow-y: auto; // Add scroll functionality if content exceeds height
+  }
+
+  &__list {
+    list-style-type: none;
+    padding: $spacing-4; 
+    width: 90%;
+  }
+
+  &__listItem {
+    padding: $spacing-6 $spacing-8; // Adjust padding for better alignment
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    color: get-color($neutral, 06);
+    font-family: $primary-font;
+    font-size: $spacing-16;
+    font-weight: $font-weight-medium;
+    cursor: pointer;
+    border-radius: $spacing-4; // Add subtle rounding for consistency
+
+    &:hover {
+      background-color: darken(get-color($neutral, 01), 10%);
+      transform: translateX(5px);
+    }
+  }
+
+  &__selectedItem {
+    background-color: get-color($primary, 8);
+    color: get-color($primary, 01);
+    border-radius: $spacing-4;
+    font-weight: $font-weight-bold;
+
+    &:hover {
+      background-color: darken(get-color($primary, 08), 10%);
+    }
+  }
+}
+

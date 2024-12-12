@@ -1,0 +1,119 @@
+@import '../../../../theme/colors';
+@import '../../../../theme/spacing';
+@import '../../../../theme/typography';
+@import '../../../../theme/breakingpoints';
+@import '../../../../theme/mixins';
+
+.homeFilter {
+    position: relative;
+    display: inline-block;
+  
+    &__button {
+      padding: 10px 20px;
+      background-color: get-color($primary, 02);
+      color: get-color($neutral, 01);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: $primary-font;
+      font-size: 16px;
+      font-weight: $font-weight-medium;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: darken(get-color($primary, 08), 10%);
+      }
+  
+      &:focus {
+        outline: none;
+      }
+    }
+  
+    &__menu {
+      position: absolute;
+      top: 100%; 
+      left: 0;
+      margin-top: 5px;
+      background-color: get-color($neutral, 100);
+      border: 1px solid get-color($neutral, 04);
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      min-width: 250px;
+      padding: 10px;
+      max-height: calc(100vh - 50px); 
+      overflow-y: auto; 
+      right: 0;
+      left: auto;
+    }
+  
+    &__section {
+      margin-bottom: 10px;
+  
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  
+    &__sectionTitle {
+      font-size: 14px;
+      font-weight: $font-weight-medium;
+      font-family: $primary-font;
+      margin-bottom: 5px;
+      color: get-color($neutral, 06);
+    }
+  
+    &__options {
+      display: flex;
+      flex-direction: column;
+  
+      label {
+        font-size: 14px;
+        font-family: $primary-font;
+        font-weight: $font-weight-medium;
+        color: get-color($neutral, 08);
+        margin-bottom: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        input[type="checkbox"] {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border: 2px solid get-color($neutral, 08);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+    
+            &:checked {
+              background-color: get-color($primary, 02); 
+              border: none;
+            }
+          }
+      }
+    }
+
+    &__applyButtonContainer{
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__applyButton, &__clearButton{
+        font-family: $primary-font;
+        font-size: 14px;
+        font-weight: $font-weight-medium;
+        padding: 5px 10px;
+        border: 1px solid get-color($neutral, 04);
+        border-radius: 5px;
+        color: get-color($neutral, 08);
+    }
+  }
+   
+  
