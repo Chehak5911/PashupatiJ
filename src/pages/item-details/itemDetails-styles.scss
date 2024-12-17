@@ -4,42 +4,89 @@
 @import '../../theme/breakingpoints';
 @import '../../theme/mixins';
 
-.itemsDetails {
-    &__container{
-        font-family: $primary-font;
-        padding: 2rem;
-        background-color: get-color($neutral, 100);
-        color: get-color($shade, 02);
-    }
-    &__title {
-        font-size: 2rem;
-        font-weight: $font-weight-bold;
-        color: get-color($primary, 01);
-    }
+.itemDetailsPage__container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: $spacing-32;
+  background-color: get-color($neutral, 100);
+  border-radius: $spacing-8;
+}
 
-  &__image {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    border: 2px solid get-color($primary, 02);
-    box-shadow: 0 4px 8px get-color($shade, 02);
+.itemDetailsPage__slider {
+  flex: 1;
+  max-width: 600px;
+  position: relative;
+}
 
-    @include sm {
-      max-width: 100%;
-    }
+.imageSlider__container {
+  border-radius: $spacing-8;
+  overflow: hidden;
+  box-shadow: 0 $spacing-2 $spacing-4 rgba(0, 0, 0, 0.15);
+}
+
+.itemDetailsPage__details {
+  flex: 1;
+  margin-left: $spacing-32;
+}
+
+.itemDetailsPage__title {
+  font-family: $primary-font;
+  font-size: $spacing-40;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-8;
+  color: get-color($primary, 700);
+}
+
+.itemDetailsPage__description {
+  font-family: $primary-font;
+  font-size: $spacing-18;
+  margin-bottom: $spacing-24;
+  line-height: 1.6;
+  color: get-color($neutral, 600);
+}
+
+.itemDetailsPage__info {
+  font-family: $secondary-font;
+  font-size: $spacing-18;
+  margin-bottom: $spacing-12;
+  color: get-color($neutral, 800);
+
+  strong {
+    color: get-color($primary, 500);
+    font-weight: $font-weight-bold;
+  }
+}
+
+.imageSlider__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: get-color($neutral, 100);
+  font-size: $spacing-32;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: get-color($primary, 600);
   }
 
- &__price {
-    font-size: 1.5rem;
-    font-weight: $font-weight-semi-bold;
-    color: get-color($primary, 02);
-    margin-top: 1rem;
+  &--left {
+    left: $spacing-8;
   }
 
-  &__description {
-    margin-top: 1rem;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: get-color($neutral, 500);
+  &--right {
+    right: $spacing-8;
   }
+}
+
+.itemDetailsPage__image {
+  width: 100%;
+  height: auto;
+  border-radius: $spacing-8;
+  object-fit: cover;
 }

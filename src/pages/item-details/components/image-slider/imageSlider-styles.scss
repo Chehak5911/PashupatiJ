@@ -1,0 +1,27 @@
+.imageSlider__container {
+    width: 100%;
+    max-width: 900px; // Adjust to match your layout
+    margin: 0 auto; // Center the slider
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .imageSlider__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .imageSlider__image {
+    width: 100%;
+    height: 500px; // Adjust the height as per requirement
+    object-fit: cover; // Crop images proportionally
+    border-radius: 8px;
+  }
+
+  .slick-prev:before,
+.slick-next:before {
+  display: none !important;
+}
