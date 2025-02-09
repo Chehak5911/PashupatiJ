@@ -5,32 +5,51 @@
 @import '../../../../theme/mixins';
 
 .homeNavBar {
+  &__menuIcon {
+    display: none;
+    cursor: pointer;
+    font-size: $spacing-24;
+    position: absolute;
+    top: $spacing-20;
+    left: $spacing-16;
+    z-index: 15;
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
     background-color: get-color($neutral, 100);
     border-right: $spacing-2 solid get-color($neutral, 04);
-    min-width: 200px; // Ensure it doesn't shrink too much
-    max-width: 300px; // Prevent it from becoming excessively wide
-    height: 100vh; // Ensure it spans the full viewport height
-    overflow-y: auto; // Add scroll functionality if content exceeds height
+    min-width: 200px;
+    max-width: 300px;
+    height: 100vh;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &__closed {
+    transform: translateX(-100%);
+  }
+
+  &__open {
+    transform: translateX(0);
   }
 
   &__list {
     list-style-type: none;
-    padding: $spacing-4; 
+    padding: $spacing-4;
     width: 90%;
   }
 
   &__listItem {
-    padding: $spacing-6 $spacing-8; // Adjust padding for better alignment
+    padding: $spacing-6 $spacing-8;
     transition: background-color 0.3s ease, transform 0.2s ease;
     color: get-color($neutral, 06);
     font-family: $primary-font;
     font-size: $spacing-16;
     font-weight: $font-weight-medium;
     cursor: pointer;
-    border-radius: $spacing-4; // Add subtle rounding for consistency
+    border-radius: $spacing-4;
 
     &:hover {
       background-color: darken(get-color($neutral, 01), 10%);
@@ -48,5 +67,25 @@
       background-color: darken(get-color($primary, 08), 10%);
     }
   }
-}
 
+  @include sm {
+    &__menuIcon {
+      display: block;
+    }
+
+    &__container {
+      position: fixed;
+      left: 0;
+      width: 250px;
+      height: 100vh;
+      background-color: get-color($neutral, 100);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 10;
+    }
+
+    &__open {
+      transform: translateX(0);
+    }
+  }
+}

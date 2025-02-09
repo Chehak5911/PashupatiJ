@@ -1,27 +1,62 @@
-.imageSlider__container {
-    width: 100%;
-    max-width: 900px; // Adjust to match your layout
-    margin: 0 auto; // Center the slider
-    padding: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .imageSlider__slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .imageSlider__image {
-    width: 100%;
-    height: 500px; // Adjust the height as per requirement
-    object-fit: cover; // Crop images proportionally
-    border-radius: 8px;
-  }
+@import '../../../../theme/breakingpoints';
+@import '../../../../theme/colors';
+@import '../../../../theme/mixins';
+@import '../../../../theme/spacing';
+@import '../../../../theme/typography';
 
-  .slick-prev:before,
+.imageSlider__container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.imageSlider__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageSlider__image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Hide default Slick arrows */
+.slick-prev:before,
 .slick-next:before {
   display: none !important;
+}
+
+/* Mobile Responsive Design */
+@include sm {
+  .imageSlider__container {
+    padding: 10px;
+    max-width: 100%;
+    box-shadow: none; // Removes shadow for a cleaner mobile look
+  }
+
+  .imageSlider__image {
+    height: 250px; // Adjust height for mobile screens
+    border-radius: 6px;
+  }
+
+  .slick-prev,
+  .slick-next {
+    width: 30px;
+    height: 30px;
+  }
+
+  .slick-prev {
+    left: -5px;
+  }
+
+  .slick-next {
+    right: -5px;
+  }
 }

@@ -105,3 +105,36 @@
     line-height: $spacing-20;
   }
 }
+
+@include sm {
+  .fmvButton {
+    &__container.MuiButton-root {
+      padding: $spacing-10 $spacing-16;
+      font-size: $spacing-14;
+    }
+
+    &__purpleContainer.MuiButton-root {
+      padding: $spacing-8 $spacing-12;
+    }
+
+    &__transparent.MuiButton-root,
+    &__borders.MuiButton-root {
+      padding: $spacing-8 $spacing-12;
+    }
+
+    &__leftRounded.MuiButton-root,
+    &__rightRounded.MuiButton-root {
+      padding: $spacing-4 $spacing-10;
+      border-radius: $spacing-6;
+    }
+
+    &__text.MuiTypography-root,
+    &__leftRoundedText.MuiTypography-root,
+    &__rightRoundedText.MuiTypography-root,
+    &__lightPurpleContainerText.MuiTypography-root {
+      font-size: $spacing-12;
+      line-height: $spacing-18;
+    }
+  }
+}
+

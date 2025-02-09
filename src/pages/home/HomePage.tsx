@@ -53,13 +53,13 @@ const DashboardPage = () => {
     if (selectedCat) {
       setSelectedCategoryId(selectedCat.id);
       setProducts([]);
-      setFilteredProducts([]); // Clear filtered products while fetching
+      setFilteredProducts([]); 
 
       try {
         const fetchedProducts = await fetchProductsByCategoryId(selectedCat.id);
         console.log('Fetched products:', fetchedProducts);
         setProducts(fetchedProducts);
-        setFilteredProducts(fetchedProducts); // Reset filters when category changes
+        setFilteredProducts(fetchedProducts); 
       } catch (error) {
         console.error('Error fetching products:', error);
       }
@@ -71,11 +71,9 @@ const DashboardPage = () => {
     console.log("Selected Metal Type:", selectedMetalType);
   
     const filtered = products.filter((product) => {
-      // Ensure product properties are present and normalized for comparison
       const gender = product.gender?.toLowerCase() || '';
       const metalType = product.metalType?.toLowerCase() || '';
   
-      // Check if the product matches the selected filters
       const genderMatches = selectedGender.length === 0 || selectedGender.includes(gender);
       const metalMatches = selectedMetalType.length === 0 || selectedMetalType.includes(metalType);
   
@@ -87,11 +85,11 @@ const DashboardPage = () => {
   };     
 
   return (
-    <div className="dashboardPage__container">
-      <div className="dashboardPage__header">
-        <Typography className="dashboardPage__title">Pashupati Jewellers</Typography>
+    <div className="homePage__container">
+      <div className="homePage__header">
+        <Typography className="homePage__title">Pashupati Jewellers</Typography>
       </div>
-      <div className="dashboardPage__subContainer">
+      <div className="homePage__subContainer">
         <HomeNavBar
           categories={categories.map((category) => category.name)}
           handleOpenModal={handleToggleModal}
@@ -99,14 +97,14 @@ const DashboardPage = () => {
           selectedCategory={selectedCategory}
         />
         {selectedCategory && (
-          <div className="dashboardPage__cardsContainer">
-            <div className="dashboardPage__cardsTitleContainer">
-              <Typography className="dashboardPage__cardsContainerTitle">
+          <div className="homePage__cardsContainer">
+            <div className="homePage__cardsTitleContainer">
+              <Typography className="homePage__cardsContainerTitle">
                 {selectedCategory}
               </Typography>
               <HomeFilter onApplyFilters={handleApplyFilters} />
             </div>
-            <div className="dashboardPage__cardsSubContainer">
+            <div className="homePage__cardsSubContainer">
               {filteredProducts.map((product) => (
                 <HomeItemsCard key={product._id} item={product} />
               ))}

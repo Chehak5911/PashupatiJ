@@ -9,7 +9,7 @@ const apiHeaders = {
 
 // Fetch categories
 export const fetchCategories = async (): Promise<Category[]> => {
-  const response = await fetch('http://54.175.137.226:3000/api/v1/category/', {
+  const response = await fetch('http://18.214.98.38:3000/api/v1/category/', {
     method: ApiMethods.Get,
     headers: apiHeaders,
   });
